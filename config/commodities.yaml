@@ -1,0 +1,59 @@
+# Commodities watchlist for the sentiment monitor.
+#
+# EDIT THIS FILE to match the commodities you actually cover.
+# Each entry drives one section of every report. Fields:
+#   name:         display name used in reports
+#   search_terms: queries the monitor runs (first one is the primary)
+#   drivers:      recurring fundamentals to check when explaining sentiment
+#   notes:        optional standing context for the analyst writing the report
+
+commodities:
+  - id: crude-oil
+    name: Crude Oil (WTI / Brent)
+    search_terms:
+      - "crude oil prices news today"
+      - "OPEC supply oil demand outlook news"
+    drivers: [OPEC+ policy, Middle East geopolitics, US inventories (EIA), Strait of Hormuz flows, demand outlook]
+
+  - id: natural-gas
+    name: Natural Gas (Henry Hub / TTF)
+    search_terms:
+      - "natural gas prices news today"
+      - "LNG exports Europe gas storage news"
+    drivers: [weather / heating & cooling demand, US storage injections, LNG export flows, European storage levels]
+
+  - id: gold
+    name: Gold
+    search_terms:
+      - "gold price news today"
+    drivers: [Fed policy & real yields, dollar strength, central-bank buying, safe-haven flows]
+
+  - id: silver
+    name: Silver
+    search_terms:
+      - "silver price news today"
+    drivers: [industrial demand (solar, electronics), gold correlation, investment flows]
+
+  - id: copper
+    name: Copper
+    search_terms:
+      - "copper price news today"
+    drivers: [China demand, grid & EV buildout, mine supply disruptions, LME/COMEX inventories, tariffs]
+
+  - id: wheat
+    name: Wheat
+    search_terms:
+      - "wheat prices news today"
+    drivers: [Black Sea exports, US/EU crop conditions, weather, export demand]
+
+  - id: corn
+    name: Corn
+    search_terms:
+      - "corn prices news today"
+    drivers: [US crop conditions & weather, ethanol demand, export sales, USDA reports]
+
+  - id: soybeans
+    name: Soybeans
+    search_terms:
+      - "soybean prices news today"
+    drivers: [China buying, South American harvest, crush margins, biofuel policy]
