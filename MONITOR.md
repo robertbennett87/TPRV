@@ -20,6 +20,17 @@ newer than the previous report's timestamp. Prefer primary market sources
 (Reuters, Bloomberg, CNBC, Trading Economics, Investing.com, agency reports
 like EIA/USDA/OPEC/USGS). Note price direction if reported.
 
+**Social pulse.** Then run one additional WebSearch per commodity using the
+`social` section of the config: build the query from `query_template` and
+restrict it with `allowed_domains: social.domains`. You are looking for the
+retail/trader read: StockTwits bullish/bearish sentiment gauges, notable
+trader calls, TradingView Minds/idea chatter, X posts from market
+commentators. Treat this stream as noisy — check dates carefully (social
+search results are often stale), ignore undated technical-analysis spam, and
+never let a single post outweigh the news flow. Its value is (a) catching
+positioning/mood shifts before they show up in coverage and (b) flagging when
+the crowd disagrees with the news narrative.
+
 ## 3. Score sentiment
 
 Assign each commodity a label and score on the standardized 7-point scale:
@@ -51,6 +62,10 @@ Create `reports/YYYY-MM-DD-HHMM-utc.md` (UTC timestamp of the run) with:
 3. **Per-commodity sections**, each containing:
    - **What's happening** — 2-4 sentences summarizing the news, with source
      links inline.
+   - **Social pulse** — 1-2 sentences on the retail/trader mood from the
+     social sweep, with links. Say explicitly when it diverges from the news
+     tone, and write "No fresh social signal" if nothing dated and relevant
+     turned up.
    - **What it means** — 1-3 sentences of interpretation for someone covering
      this beat: why sentiment sits where it does, what would change it, and
      anything worth watching before the next edition (data releases, meetings,

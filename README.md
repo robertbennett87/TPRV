@@ -15,7 +15,10 @@ means for someone covering the beat, and:
 
 - **`config/commodities.yaml`** — the watchlist. Edit this to add/remove
   commodities or tune search terms and drivers. Changes take effect on the
-  next scheduled run; no other step needed.
+  next scheduled run; no other step needed. The `social` section controls an
+  extra per-commodity sweep of trader/retail platforms (StockTwits, X,
+  TradingView; Reddit blocks Anthropic's crawler and can't be included) that
+  feeds a "Social pulse" line in each report section.
 - **`MONITOR.md`** — the methodology each run follows: gather news via web
   search, score sentiment on a -2…+2 scale, compare against the previous
   report, write the new edition.

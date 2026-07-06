@@ -7,6 +7,13 @@
 #   drivers:      recurring fundamentals to check when explaining sentiment
 #   notes:        optional standing context for the analyst writing the report
 
+# Social/retail sentiment sweep: for each commodity, one extra search is run
+# restricted to these domains (WebSearch allowed_domains). Reddit is excluded
+# because it blocks Anthropic's crawler entirely.
+social:
+  domains: [stocktwits.com, x.com, twitter.com, tradingview.com]
+  query_template: "{name} sentiment traders"
+
 commodities:
   - id: crude-oil
     name: Crude Oil (WTI / Brent)
