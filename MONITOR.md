@@ -83,11 +83,14 @@ markdown links.
    from the dashboard table. Quote the driver field if it contains commas.
 2. Regenerate the history dashboard: `python3 scripts/render_history.py`
    (reads `history/scores.csv`, writes `HISTORY.md`).
+3. Render the PDF edition: `python3 scripts/render_pdf.py` (defaults to the
+   newest report; writes `reports/pdf/<same-name>.pdf`).
 
 ## 6. Publish
 
 1. `git add reports/ history/ HISTORY.md && git commit` with message
-   `Sentiment report YYYY-MM-DD HH:MM UTC`.
+   `Sentiment report YYYY-MM-DD HH:MM UTC` (this includes the PDF under
+   `reports/pdf/`).
 2. Pull with rebase, then `git push -u origin claude/commodities-sentiment-monitor-2qj2mb`
    (retry on network errors with backoff).
 3. End your session with a **condensed version of the report as your final
