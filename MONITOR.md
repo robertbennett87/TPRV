@@ -22,20 +22,23 @@ like EIA/USDA/OPEC/USGS). Note price direction if reported.
 
 ## 3. Score sentiment
 
-Assign each commodity a sentiment label and score:
+Assign each commodity a label and score on the standardized 7-point scale:
 
-| Score | Label            |
-|-------|------------------|
-| +2    | Bullish          |
-| +1    | Leaning bullish  |
-|  0    | Neutral / mixed  |
-| -1    | Leaning bearish  |
-| -2    | Bearish          |
+| Score | Label            | Use when the news flow is…                                  |
+|-------|------------------|-------------------------------------------------------------|
+| +3    | Very bullish     | one-sided bullish with a major structural/supply-shock story |
+| +2    | Bullish          | clearly bullish; catalysts strongly outweigh the bear case   |
+| +1    | Leaning bullish  | net-positive tone, but the bull case is young or contested   |
+|  0    | Neutral / mixed  | balanced, offsetting, or quiet news flow                     |
+| -1    | Leaning bearish  | net-negative tone, but the bear case is young or contested   |
+| -2    | Bearish          | clearly bearish; catalysts strongly outweigh the bull case   |
+| -3    | Very bearish     | one-sided bearish with a major structural/glut/demand-shock story |
 
 Sentiment means *market/news tone about the price outlook*, not whether the
 price already moved. Judge from the balance of catalysts in the coverage,
-weighted by the commodity's `drivers` list. Record the delta versus the
-previous report (e.g. "▲ from Neutral", "unchanged").
+weighted by the commodity's `drivers` list. Reserve ±3 for genuinely extreme,
+one-sided narratives — most readings should live between -2 and +2. Record the
+delta versus the previous report (e.g. "▲ from Neutral", "unchanged").
 
 ## 4. Write the report
 
@@ -56,9 +59,19 @@ Create `reports/YYYY-MM-DD-HHMM-utc.md` (UTC timestamp of the run) with:
 Keep the whole report readable in under five minutes. Cite sources as
 markdown links.
 
-## 5. Publish
+## 5. Update the score history
 
-1. `git add reports/ && git commit` with message
+1. Append one row per commodity to `history/scores.csv`
+   (columns: `timestamp_utc,commodity,score,label,driver`). Use the same
+   run timestamp for every row (`YYYY-MM-DDTHH:MMZ`), the commodity `id`
+   from the config, the numeric score, the label, and the one-line driver
+   from the dashboard table. Quote the driver field if it contains commas.
+2. Regenerate the history dashboard: `python3 scripts/render_history.py`
+   (reads `history/scores.csv`, writes `HISTORY.md`).
+
+## 6. Publish
+
+1. `git add reports/ history/ HISTORY.md && git commit` with message
    `Sentiment report YYYY-MM-DD HH:MM UTC`.
 2. Pull with rebase, then `git push -u origin claude/commodities-sentiment-monitor-2qj2mb`
    (retry on network errors with backoff).
