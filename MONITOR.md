@@ -16,22 +16,50 @@ and dated catalysts matter as much as direction. Follow these steps exactly.
 
 ## 2. Gather news (per commodity)
 
+**First read `SOURCES.md`** — the learned source registry. It tells you which
+sites, feeds, and accounts have proven useful and which are dead ends.
+
 For each commodity, run the `search_terms` from the config with WebSearch.
 Focus on developments from roughly the last 24 hours, and especially anything
 newer than the previous report's timestamp. Prefer primary market sources
 (Reuters, Bloomberg, CNBC, Trading Economics, Investing.com, agency reports
 like EIA/USDA/OPEC/USGS). Note price direction if reported.
 
+**Scour far and wide, not just the defaults:**
+- When a thread matters (a tanker incident, a cargo booking, a crop-damage
+  estimate), run a follow-up search on that specific story rather than
+  settling for the one mention.
+- Use the registry: target `keep`-status sources with `allowed_domains` or
+  source-specific queries when their beat is in play (e.g. StockTwits
+  sentiment gauges for metals crowd scores, TradingView Minds for
+  positioning chatter, NGI for gas flows).
+- Each run, spend one or two searches probing beyond the usual set —
+  trade press (Platts/S&P Global, Argus, World Grain, Mining.com), regional
+  outlets near the story (European press for EU crops, Gulf press for OPEC),
+  or a named analyst from the registry. New finds feed the registry.
+
 **Social pulse.** Then run one additional WebSearch per commodity using the
 `social` section of the config: build the query from `query_template` and
-restrict it with `allowed_domains: social.domains`. You are looking for the
-retail/trader read: StockTwits bullish/bearish sentiment gauges, notable
-trader calls, TradingView Minds/idea chatter, X posts from market
-commentators. Treat this stream as noisy — check dates carefully (social
-search results are often stale), ignore undated technical-analysis spam, and
-never let a single post outweigh the news flow. Its value is (a) catching
-positioning/mood shifts before they show up in coverage and (b) flagging when
-the crowd disagrees with the news narrative.
+restrict it with `allowed_domains: social.domains`. Also target the specific
+accounts and feeds listed under "Social accounts & feeds" in `SOURCES.md`
+when their beat is in play. You are looking for the retail/trader read:
+StockTwits bullish/bearish sentiment gauges, notable trader calls,
+TradingView Minds/idea chatter, X posts from market commentators. Treat this
+stream as noisy — check dates carefully (social search results are often
+stale), ignore undated technical-analysis spam, and never let a single post
+outweigh the news flow. Its value is (a) catching positioning/mood shifts
+before they show up in coverage and (b) flagging when the crowd disagrees
+with the news narrative.
+
+**Curate the registry (every run).** After gathering, update `SOURCES.md`:
+- **Add** any source, feed, or account that provided dated, decision-relevant
+  information this run — with one line on what it's good for, today's date,
+  and `probation` status.
+- **Promote** a probation entry to `keep` once it has earned its place across
+  several runs; **demote or remove** entries that keep coming back stale.
+- Record new dead ends so future runs don't waste searches.
+This file is the monitor's memory — the goal is a slowly improving, curated
+source list that sharpens the measurement over time.
 
 ## 3. Score sentiment
 
@@ -130,9 +158,9 @@ markdown links.
 
 ## 6. Publish
 
-1. `git add reports/ history/ HISTORY.md && git commit` with message
-   `Sentiment report YYYY-MM-DD HH:MM UTC` (this includes the PDF under
-   `reports/pdf/`).
+1. `git add reports/ history/ HISTORY.md SOURCES.md && git commit` with
+   message `Sentiment report YYYY-MM-DD HH:MM UTC` (this includes the PDF
+   under `reports/pdf/` and any registry updates).
 2. Pull with rebase, then `git push -u origin claude/commodities-sentiment-monitor-2qj2mb`
    (retry on network errors with backoff).
 3. End your session with a **condensed version of the report as your final

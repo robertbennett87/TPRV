@@ -21,10 +21,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 CHROMIUM = "/opt/pw-browsers/chromium"
 
-# Diverging bearish↔bullish scale: red arm / neutral gray / blue arm.
-# (chip background, chip text) — labels always accompany color.
+# Diverging bearish↔bullish scale: red arm / neutral gray / green arm
+# (finance convention). Red/green is the hardest pair for colorblind readers,
+# so every chip also carries its numeric score and text label — color never
+# works alone. (chip background, chip text)
 SCORE_STYLE = {
-    3: ("#184f95", "#ffffff"), 2: ("#3987e5", "#ffffff"), 1: ("#9ec5f4", "#0b0b0b"),
+    3: ("#0d5222", "#ffffff"), 2: ("#1f7a33", "#ffffff"), 1: ("#b5dfb9", "#0b0b0b"),
     0: ("#f0efec", "#0b0b0b"),
     -1: ("#f5c4c3", "#0b0b0b"), -2: ("#e34948", "#ffffff"), -3: ("#8f2726", "#ffffff"),
 }

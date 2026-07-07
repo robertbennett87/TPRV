@@ -23,6 +23,10 @@ pairs, builds a dated catalyst calendar, gives a positioning read per leg, and:
 - **`MONITOR.md`** — the methodology each run follows: gather news via web
   search, score sentiment on a -2…+2 scale, compare against the previous
   report, write the new edition.
+- **`SOURCES.md`** — the learned source registry: sites, feeds, and social
+  accounts that have proven useful, plus known dead ends. Every run reads it
+  to target searches and updates it with what worked (probation → keep) —
+  a slowly self-curating source list.
 - **`reports/`** — the archive, one markdown file per run, timestamped in
   UTC. The newest report is each run's baseline for "what changed".
 - **`history/scores.csv`** — the running score history: one row per
