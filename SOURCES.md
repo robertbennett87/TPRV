@@ -61,6 +61,78 @@ Scour it indirectly:
 | AltIndex | WebSearch only (direct fetch 403s) | WSB most-mentioned tracker, 5-min refresh claims | 2026-07-07 | probation |
 | Articles quoting Reddit | unrestricted WebSearch, e.g. "reddit silver squeeze discussion" | Narrative color when a retail story is in play (Yahoo Finance covered WSB silver split) | 2026-07-07 | probation |
 
+## Independent source map (Fable consultation, 2026-07-07)
+
+Produced by an independently-prompted Fable instance with no context from this
+monitor's runs, as a from-scratch answer to "what sources should a commodities
+sentiment monitor use." **Treat every entry as probation until a run proves
+it**; promote winners into the working tables above, record failures under
+dead ends. Entries marked (verify) were flagged by the consultation itself as
+possibly stale.
+
+### News wires & market data
+Reuters Commodities (backbone wire, all legs) · Investing.com news/analysis ·
+CNBC Commodities · MarketWatch Commodities (retail framing = crowdedness tell)
+· Barchart daily market commentary + per-contract COT/"Opinion %" pages
+(trend-crowdedness score) · TradingView per-symbol Ideas volume · OilPrice.com
+· John Kemp — jkempenergy.com (verify home; the best free oil/gas
+positioning notes) · NGI (Henry Hub cash color) · Kitco News · Mining.com
+(copper/gold supply disruptions) · AgWeb · Successful Farming markets · DTN
+Progressive Farmer (partial free).
+
+### Trade / specialist press
+Argus Media free news (physical crude differentials) · S&P Global/Platts free
+headlines · RBN Energy daily blog (US gas/oil infrastructure — the natgas pro
+read) · Celsius Energy (natgas weather models, verify) · Fastmarkets (physical
+premia) · BullionVault/Adrian Ash · Silver Institute + World Gold Council
+newsrooms · SMM metal.com English (China copper physical, Yangshan premium —
+purest China demand signal) · World Grain / Grain Central · Pro Farmer
+headlines (August crop tour = major ag sentiment event) · AgriCensus (verify
+free layer).
+
+### Official / agency (with schedules)
+CFTC COT (Fri 3:30pm ET) · EIA petroleum (Wed) + gas storage (Thu) + STEO ·
+USDA WASDE (~monthly noon ET), Export Sales (Thu), **FAS daily flash sales
+≥100kt (intraday China-demand signal)**, Crop Progress (Mon) · OPEC MOMR + IEA
+OMR (mid-month) · NOAA CPC 6-10/8-14 day outlooks (drives gas + ag weather
+sentiment) · LME/SHFE/COMEX visible inventories · China customs data (via wire
+pickups ~day 7-13) · CME FedWatch (gold/silver macro input) · Baker Hughes
+(Fri).
+
+### Social accounts (X unless noted)
+@Ole_S_Hansen (Saxo — weekly COT breakdowns, all legs; highest-value single
+follow) · @WarrenPies · @mikezaccardi · @Barchart (virality = crowdedness) ·
+@JKempEnergy · @JavierBlas (physical oil color, tweets free) · @Amena__Bakr
+(OPEC+ sourcing) · @CelsiusEnergyLLC (verify) · @RyanMaue + @BAMWXTeam
+(weather) · @TaviCosta (PM narrative temperature) · @KitcoNewsNOW ·
+@ColinLHamilton (verify) · #silversqueeze volume as froth gauge · @kannbwx
+(Karen Braun — grain positioning, essential; verify affiliation) ·
+@Eric_Snodgrass (ag weather, verify) · @ArlanFF101 (StoneX grains) ·
+@SusanNOBULL (cash grain) · @AndreySizov (SovEcon — Black Sea wheat) ·
+StockTwits streams $GLD $SLV $USO $UNG $CORN $WEAT $SOYB $CPER (native
+bull/bear ratios).
+
+### Sentiment / positioning trackers
+Tradingster.com (cleanest free COT tables) · cotpricecharts.com (verify) ·
+Saxo weekly COT note · Kitco Weekly Gold Survey (Wall St vs Main St split,
+Fridays) · ApeWisdom (already in use) · SwaggyStocks / HypeEquity (verify) ·
+CME QuikStrike free vol tools (options skew as positioning, verify free tier)
+· GoldPrice.org fear/greed-style gauges.
+
+### Underrated / contrarian
+Hellenic Shipping News (republishes paywalled freight/tanker content free) ·
+Kpler/Vortexa chart posts (floating storage = contrarian bearish tell) · SMM
+Yangshan copper premium (falling premium vs rising COMEX = crowded long) ·
+Reuters "Asia Gold" weekly column (Indian premia/discounts — physical buyers
+strike at extremes) · Shanghai Gold Exchange premium vs London (verify
+tracker) · CONAB Brazil + Rosario BCR + Buenos Aires Grain Exchange reports ·
+SovEcon/IKAR Russian wheat estimates · soybeansandcorn.com (Cordonnier South
+America crop scouting, free) · NASA Harvest / EU JRC MARS satellite crop
+bulletins · US Drought Monitor (Thursdays, droughtmonitor.unl.edu) ·
+GasBuddy/AAA pump prices (crude demand-side mood) · **Google Trends for "buy
+gold" / "silver squeeze" / "gas prices" (honest retail-attention index)** ·
+Kallanish / Mysteel English snippets (verify free layer).
+
 ## Known dead ends (do not retry)
 
 - **Reddit directly** (any subreddit, any layer): network 403, crawler blocked, domain filter rejected. Use the trackers above instead.
