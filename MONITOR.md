@@ -51,6 +51,20 @@ outweigh the news flow. Its value is (a) catching positioning/mood shifts
 before they show up in coverage and (b) flagging when the crowd disagrees
 with the news narrative.
 
+**Reddit (indirect).** Reddit cannot be accessed directly (it blocks both
+this environment's network and Anthropic's crawler) — scour it through
+trackers that scrape it. Run 2-3 batched searches per edition using
+`social.reddit_tracker_query` with the `reddit_proxies` ETF tickers grouped
+by complex (e.g. one search for `SLV GLD GDX`, one for `USO UNG`, one for
+`CORN WEAT SOYB CPER`). ApeWisdom snippets return mentions/24h, unique
+users, and % positive vs negative per ticker — quantified crowd data that
+feeds the crowd score. Interpret honestly: coverage skews to meme-adjacent
+tickers (metals are liquid; ag ETFs are often near zero mentions), and
+**zero mentions is itself a reading** — no retail crowding from Reddit in
+that leg. Supplement with an unrestricted search for articles quoting
+Reddit chatter when a retail story is in play (e.g. "reddit silver squeeze
+discussion").
+
 **Curate the registry (every run).** After gathering, update `SOURCES.md`:
 - **Add** any source, feed, or account that provided dated, decision-relevant
   information this run — with one line on what it's good for, today's date,

@@ -49,7 +49,20 @@ Peter Brandt (metals technicals), Ole Hansen / Saxo (metals macro), Citi &
 Goldman metals desks (copper targets), Pickering Energy (crude flows),
 Commodity Weather Group (ag/gas forecasts — moved natgas score 2026-07-06).
 
+## Reddit — access via trackers only
+
+Direct Reddit access fails at every layer (network policy blocks the request;
+Reddit blocks Anthropic's crawler; `allowed_domains: reddit.com` errors out).
+Scour it indirectly:
+
+| Route | How | Good for | Added | Status |
+|---|---|---|---|---|
+| ApeWisdom | WebSearch "apewisdom {tickers} reddit mentions sentiment" (direct fetch 403s — search snippets only) | Quantified Reddit crowd data: mentions/24h, unique users, % positive per ticker (SLV/GLD verified live; UNG returned 0 mentions — thin-coverage caveat) | 2026-07-07 | keep |
+| AltIndex | WebSearch only (direct fetch 403s) | WSB most-mentioned tracker, 5-min refresh claims | 2026-07-07 | probation |
+| Articles quoting Reddit | unrestricted WebSearch, e.g. "reddit silver squeeze discussion" | Narrative color when a retail story is in play (Yahoo Finance covered WSB silver split) | 2026-07-07 | probation |
+
 ## Known dead ends (do not retry)
 
-- **Reddit** (all subreddits): blocks Anthropic's crawler — API rejects the domain filter outright.
+- **Reddit directly** (any subreddit, any layer): network 403, crawler blocked, domain filter rejected. Use the trackers above instead.
+- **apewisdom.io / altindex.com direct fetch**: 403 bot protection — their data is reachable only through search snippets.
 - Generic "indicators and strategies" TradingView script pages: undated TA spam, no sentiment value.

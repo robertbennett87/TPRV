@@ -8,11 +8,23 @@
 #   notes:        optional standing context for the analyst writing the report
 
 # Social/retail sentiment sweep: for each commodity, one extra search is run
-# restricted to these domains (WebSearch allowed_domains). Reddit is excluded
-# because it blocks Anthropic's crawler entirely.
+# restricted to these domains (WebSearch allowed_domains). Reddit blocks both
+# direct access and Anthropic's crawler, so it is scoured INDIRECTLY via
+# trackers that scrape it (ApeWisdom quantifies mentions + % positive per
+# ticker) using the reddit_proxies ETF tickers below — see MONITOR.md.
 social:
   domains: [stocktwits.com, x.com, twitter.com, tradingview.com]
   query_template: "{name} sentiment traders"
+  reddit_tracker_query: "apewisdom {tickers} reddit mentions sentiment"
+  reddit_proxies:
+    crude-oil: [USO]
+    natural-gas: [UNG]
+    gold: [GLD, GDX]
+    silver: [SLV]
+    copper: [CPER, COPX]
+    wheat: [WEAT]
+    corn: [CORN]
+    soybeans: [SOYB]
 
 # RV pair matrix: sentiment differentials tracked run over run. diff is
 # score(leg1) - score(leg2); positive = news flow favors leg1 outperformance.
