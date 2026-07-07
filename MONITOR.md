@@ -85,6 +85,13 @@ markdown links.
    (reads `history/scores.csv`, writes `HISTORY.md`).
 3. Render the PDF edition: `python3 scripts/render_pdf.py` (defaults to the
    newest report; writes `reports/pdf/<same-name>.pdf`).
+4. **Email the PDF, if possible.** Check whether an email-capable tool or
+   connector (e.g. Gmail) is available in the session. If yes, send the PDF to
+   every address under `distribution.email` in `config/commodities.yaml`,
+   using `distribution.subject_template` for the subject and the condensed
+   dashboard summary as the body. If no email capability exists, skip this
+   step silently — do not fail the run — and note "email not sent (no
+   connector)" in your final message.
 
 ## 6. Publish
 

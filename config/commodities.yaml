@@ -14,6 +14,15 @@ social:
   domains: [stocktwits.com, x.com, twitter.com, tradingview.com]
   query_template: "{name} sentiment traders"
 
+# Distribution list for the PDF edition. Sending requires an email connector
+# (e.g. Gmail) to be connected to the Claude workspace and enabled for the
+# session; until then, runs skip this step and the PDF stays in reports/pdf/.
+distribution:
+  email:
+    - Robert.Bennett@capstoneco.com
+    - Peter.lu@capstoneco.com
+  subject_template: "Commodities Sentiment Report — {timestamp} UTC"
+
 commodities:
   - id: crude-oil
     name: Crude Oil (WTI / Brent)
