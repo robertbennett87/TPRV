@@ -14,6 +14,46 @@ social:
   domains: [stocktwits.com, x.com, twitter.com, tradingview.com]
   query_template: "{name} sentiment traders"
 
+# RV pair matrix: sentiment differentials tracked run over run. diff is
+# score(leg1) - score(leg2); positive = news flow favors leg1 outperformance.
+# Edit to match the spreads the pod actually trades. Legs must be commodity
+# ids from the watchlist below (split a merged leg into its own entry first
+# if you need e.g. WTI-Brent or HH-TTF).
+pairs:
+  - id: gold-silver
+    legs: [gold, silver]
+    note: ratio trade; silver = high-beta leg
+  - id: corn-soybeans
+    legs: [corn, soybeans]
+    note: new-crop acreage/China demand spread
+  - id: corn-wheat
+    legs: [corn, wheat]
+    note: feed substitution + relative supply shock
+  - id: crude-natgas
+    legs: [crude-oil, natural-gas]
+    note: energy complex RV / BTU spread proxy
+  - id: gold-copper
+    legs: [gold, copper]
+    note: macro risk-on/off proxy (rate expectations vs growth)
+
+# Standing weekly/monthly catalyst schedule. Each run builds a dated
+# "next 7 days" calendar from this plus any dated events found in coverage
+# (Fed meetings/minutes, OPEC+ dates, crop tours, contract expiries).
+calendar:
+  weekly:
+    - { day: Mon, event: "USDA Crop Progress (4pm ET)", legs: [wheat, corn, soybeans] }
+    - { day: Tue, event: "API petroleum inventories (4:30pm ET)", legs: [crude-oil] }
+    - { day: Wed, event: "EIA Weekly Petroleum Status (10:30am ET)", legs: [crude-oil] }
+    - { day: Thu, event: "EIA Natural Gas Storage (10:30am ET)", legs: [natural-gas] }
+    - { day: Thu, event: "USDA weekly Export Sales (8:30am ET)", legs: [wheat, corn, soybeans] }
+    - { day: Fri, event: "CFTC Commitments of Traders (3:30pm ET)", legs: [all] }
+    - { day: Fri, event: "Baker Hughes rig count (1pm ET)", legs: [crude-oil, natural-gas] }
+  monthly:
+    - "USDA WASDE (~10th-12th): all grains"
+    - "OPEC MOMR & IEA OMR (mid-month): crude"
+    - "EIA STEO (early month): crude, natural gas"
+    - "China trade/industrial data (mid-month): copper, soybeans"
+
 # Distribution list for the PDF edition. Sending requires an email connector
 # (e.g. Gmail) to be connected to the Claude workspace and enabled for the
 # session; until then, runs skip this step and the PDF stays in reports/pdf/.

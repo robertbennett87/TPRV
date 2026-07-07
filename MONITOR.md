@@ -1,7 +1,9 @@
 # Commodities Sentiment Monitor — Run Instructions
 
 You are producing one edition of a recurring commodities sentiment report for a
-journalist who covers these markets. Follow these steps exactly.
+**commodities relative-value trading pod**. The readers trade spreads between
+these markets, not just outrights: the differentials between legs, crowdedness,
+and dated catalysts matter as much as direction. Follow these steps exactly.
 
 ## 1. Load context
 
@@ -51,25 +53,54 @@ weighted by the commodity's `drivers` list. Reserve ±3 for genuinely extreme,
 one-sided narratives — most readings should live between -2 and +2. Record the
 delta versus the previous report (e.g. "▲ from Neutral", "unchanged").
 
+**Crowdedness (0-3).** Separately from direction, score how one-sided and
+crowded the view is, using the social sweep's uniformity plus any positioning
+evidence in coverage (COT/managed-money data, trader polls, retail gauges):
+
+| Crowd | Meaning |
+|-------|---------|
+| 0 | genuinely two-sided; bulls and bears both vocal |
+| 1 | mild lean; dissent easy to find |
+| 2 | one-sided narrative; dissent is the minority take |
+| 3 | crowded AND uniform — positioning stretched the same way (contrarian risk) |
+
+Direction and crowd are independent: a +2/crowd-3 reading is a bullish but
+fade-vulnerable market; a -2/crowd-0 reading is a bearish story the market is
+still arguing about. When positioning visibly disagrees with the news tone
+(e.g. bullish flow, large traders net short), say so — that tension is the
+signal.
+
 ## 4. Write the report
 
 Create `reports/YYYY-MM-DD-HHMM-utc.md` (UTC timestamp of the run) with:
 
-1. **Dashboard table** at the top: Commodity | Sentiment | Score | Δ vs last
-   report | One-line driver.
+1. **Dashboard table** at the top: Commodity | Sentiment | Score | Crowd |
+   Δ vs last report | One-line driver.
 2. **"Biggest shifts" paragraph**: 2-4 sentences on the most significant
    sentiment changes since the last edition. If nothing shifted, say so.
-3. **Per-commodity sections**, each containing:
+3. **"## RV pair matrix"** — one row per pair in the config:
+   Pair | Spread (leg1−leg2) | Δ vs last | Read. "Spread" is the sentiment
+   differential; "Read" is one line on which leg is doing the work and
+   whether the differential is widening or narrowing. Flag any pair where
+   the differential moved this run.
+4. **"## Catalyst calendar (next 7 days)"** — build from the `calendar`
+   config plus any dated events found in this run's coverage (Fed
+   meetings/minutes, OPEC+ dates, USDA reports, expiries). One row per
+   event: Date | Event | Legs | Why it matters now. Actual dates, not
+   day-of-week names alone.
+5. **Per-commodity sections**, each containing:
    - **What's happening** — 2-4 sentences summarizing the news, with source
-     links inline.
+     links inline. Note any term-structure/curve or spread mentions in
+     coverage (contango/backwardation, storage economics, freight), not just
+     outright direction.
    - **Social pulse** — 1-2 sentences on the retail/trader mood from the
      social sweep, with links. Say explicitly when it diverges from the news
      tone, and write "No fresh social signal" if nothing dated and relevant
      turned up.
-   - **What it means** — 1-3 sentences of interpretation for someone covering
-     this beat: why sentiment sits where it does, what would change it, and
-     anything worth watching before the next edition (data releases, meetings,
-     weather windows).
+   - **Positioning read** — 1-3 sentences for someone long/short this leg or
+     its spreads: what changed for the position, where the asymmetry sits
+     (what's priced vs what isn't), what invalidates the read, and the next
+     dated catalyst that can reprice it.
 
 Keep the whole report readable in under five minutes. Cite sources as
 markdown links.
@@ -77,15 +108,19 @@ markdown links.
 ## 5. Update the score history
 
 1. Append one row per commodity to `history/scores.csv`
-   (columns: `timestamp_utc,commodity,score,label,driver`). Use the same
-   run timestamp for every row (`YYYY-MM-DDTHH:MMZ`), the commodity `id`
-   from the config, the numeric score, the label, and the one-line driver
-   from the dashboard table. Quote the driver field if it contains commas.
-2. Regenerate the history dashboard: `python3 scripts/render_history.py`
-   (reads `history/scores.csv`, writes `HISTORY.md`).
-3. Render the PDF edition: `python3 scripts/render_pdf.py` (defaults to the
+   (columns: `timestamp_utc,commodity,score,label,crowd,driver`). Use the
+   same run timestamp for every row (`YYYY-MM-DDTHH:MMZ`), the commodity
+   `id` from the config, the numeric score, the label, the crowd score, and
+   the one-line driver from the dashboard table. Quote the driver field if
+   it contains commas.
+2. Append one row per pair to `history/pairs.csv`
+   (columns: `timestamp_utc,pair,leg1,leg2,diff` where
+   `diff = score(leg1) - score(leg2)`).
+3. Regenerate the history dashboard: `python3 scripts/render_history.py`
+   (reads both CSVs, writes `HISTORY.md`).
+4. Render the PDF edition: `python3 scripts/render_pdf.py` (defaults to the
    newest report; writes `reports/pdf/<same-name>.pdf`).
-4. **Email the PDF, if possible.** Check whether an email-capable tool or
+5. **Email the PDF, if possible.** Check whether an email-capable tool or
    connector (e.g. Gmail) is available in the session. If yes, send the PDF to
    every address under `distribution.email` in `config/commodities.yaml`,
    using `distribution.subject_template` for the subject and the condensed

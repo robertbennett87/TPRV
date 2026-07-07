@@ -1,9 +1,10 @@
 # TPRV — Commodities Sentiment Monitor
 
-A recurring sentiment monitor for commodities news. Every few hours a
-scheduled Claude Code session gathers the latest coverage for each commodity
-on the watchlist, scores the sentiment, explains what's driving it and what it
-means for someone covering the beat, and:
+A recurring sentiment monitor for a commodities relative-value pod. Every few
+hours a scheduled Claude Code session gathers the latest coverage and trader
+chatter for each leg on the watchlist, scores direction (-3..+3) and
+crowdedness (0..3), computes sentiment differentials for the configured RV
+pairs, builds a dated catalyst calendar, gives a positioning read per leg, and:
 
 - commits the full report to [`reports/`](reports/),
 - appends every score to the running history in
@@ -25,8 +26,13 @@ means for someone covering the beat, and:
 - **`reports/`** — the archive, one markdown file per run, timestamped in
   UTC. The newest report is each run's baseline for "what changed".
 - **`history/scores.csv`** — the running score history: one row per
-  commodity per run (`timestamp_utc,commodity,score,label,driver`). This is
-  the machine-readable source of truth for charting sentiment over time.
+  commodity per run (`timestamp_utc,commodity,score,label,crowd,driver`).
+  This is the machine-readable source of truth for charting sentiment over
+  time (crowd is empty on runs before it was introduced).
+- **`history/pairs.csv`** — sentiment differentials for the configured RV
+  pairs (`timestamp_utc,pair,leg1,leg2,diff`, where
+  `diff = score(leg1) − score(leg2)`); chart this against the price spread
+  to spot narrative-vs-price dislocations.
 - **`HISTORY.md`** — human-readable view of the history: latest reading and
   recent trend per commodity, plus a run-by-run score grid at the monitor's
   4-hour intervals. Regenerated each run by `scripts/render_history.py`.

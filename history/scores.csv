@@ -1,33 +1,41 @@
-timestamp_utc,commodity,score,label,driver
-2026-07-05T19:11Z,crude-oil,-2,Bearish,"Hormuz flows normalized; surplus barrels clearing, prices back at pre-war levels"
-2026-07-05T19:11Z,natural-gas,-1,Leaning bearish,"Bigger-than-expected storage build and widening surplus vs. incoming heat wave"
-2026-07-05T19:11Z,gold,1,Leaning bullish,"Weak June payrolls cut Fed rate-hike odds; dollar's worst week since April"
-2026-07-05T19:11Z,silver,1,Leaning bullish,"~6% weekly rebound off seven-month lows on the same Fed repricing"
-2026-07-05T19:11Z,copper,0,Neutral / mixed,"Fed repricing supports, but month-long downtrend and easing supply risk cap it"
-2026-07-05T19:11Z,wheat,2,Bullish,"Smallest HRW crop since 1957/58, US heatwave, smaller Canadian plantings"
-2026-07-05T19:11Z,corn,1,Leaning bullish,"USDA tighter stocks + heat dome risk, one-month price high"
-2026-07-05T19:11Z,soybeans,-1,Leaning bearish,"USDA sees larger stockpiles and record plantings; export sales at marketing-year low"
-2026-07-06T22:00Z,crude-oil,-1,Leaning bearish,"Recovered from 4.25-month low on short covering; supply glut intact but priced"
-2026-07-06T22:00Z,natural-gas,-1,Leaning bearish,"Two-week low on above-average storage and cooler forecasts"
-2026-07-06T22:00Z,gold,1,Leaning bullish,"Monday dip on firmer dollar, but soft labor market keeps rate-hike odds pinned"
-2026-07-06T22:00Z,silver,2,Bullish,"Second straight ~3% jump; safe-haven bid plus Fed repricing momentum"
-2026-07-06T22:00Z,copper,1,Leaning bullish,"Fed repricing tailwind plus falling concentrate output in South America"
-2026-07-06T22:00Z,wheat,2,Bullish,"Stocks and acreage both missed estimates; Black Sea supply caps the upside"
-2026-07-06T22:00Z,corn,2,Bullish,"France heat damaged ~1/3 of its crop; China to cut tariffs on US grains"
-2026-07-06T22:00Z,soybeans,0,Neutral / mixed,"China tariff-cut plan offsets big-stocks, weak-export backdrop"
-2026-07-06T22:15Z,crude-oil,-1,Leaning bearish,"Range-bound after 4.25-month low; social crowd bearish, watching $68-70 support"
-2026-07-06T22:15Z,natural-gas,-1,Leaning bearish,"Storage surplus rules the news; trader chatter says bad news is priced in"
-2026-07-06T22:15Z,gold,1,Leaning bullish,"Soft labor market pins rate-hike odds; retail extremely bullish on miners"
-2026-07-06T22:15Z,silver,2,Bullish,"Momentum leader; social crowd bullish and buying dips (contrarian flag)"
-2026-07-06T22:15Z,copper,1,Leaning bullish,"Fed repricing + supply dents; bank forecasts circulating bullishly on social"
-2026-07-06T22:15Z,wheat,2,Bullish,"Stocks/acreage misses; large traders still net short = short-covering fuel"
-2026-07-06T22:15Z,corn,2,Bullish,"France crop damage + China tariff cuts; social chatter lags the news"
-2026-07-06T22:15Z,soybeans,0,Neutral / mixed,"China tariff plan vs big stocks; no fresh social signal"
-2026-07-06T23:00Z,crude-oil,-1,Leaning bearish,"Tight range; Qatar reports US-Iran progress, supply fully recovering"
-2026-07-06T23:00Z,natural-gas,-2,Bearish,"Forecasts shifted cooler for July 7-16, removing the heat-demand prop"
-2026-07-06T23:00Z,gold,1,Leaning bullish,"Dollar-driven dip, but soft labor market keeps rate-hike odds pinned at ~50%"
-2026-07-06T23:00Z,silver,2,Bullish,"Consolidating (~$62) after a 6% two-session run; bullish drivers intact"
-2026-07-06T23:00Z,copper,1,Leaning bullish,"Chinese funds rotating into metals ahead of solid H1 producer earnings"
-2026-07-06T23:00Z,wheat,2,Bullish,"Plantings lowest in USDA records back to 1919; supply contraction ahead"
-2026-07-06T23:00Z,corn,2,Bullish,"US-China agree to include ag in tariff-reduction framework; France damage"
-2026-07-06T23:00Z,soybeans,0,Neutral / mixed,"Tariff framework hope vs big stocks and marketing-year-low export sales"
+timestamp_utc,commodity,score,label,crowd,driver
+2026-07-05T19:11Z,crude-oil,-2,Bearish,,"Hormuz flows normalized; surplus barrels clearing, prices back at pre-war levels"
+2026-07-05T19:11Z,natural-gas,-1,Leaning bearish,,Bigger-than-expected storage build and widening surplus vs. incoming heat wave
+2026-07-05T19:11Z,gold,1,Leaning bullish,,Weak June payrolls cut Fed rate-hike odds; dollar's worst week since April
+2026-07-05T19:11Z,silver,1,Leaning bullish,,~6% weekly rebound off seven-month lows on the same Fed repricing
+2026-07-05T19:11Z,copper,0,Neutral / mixed,,"Fed repricing supports, but month-long downtrend and easing supply risk cap it"
+2026-07-05T19:11Z,wheat,2,Bullish,,"Smallest HRW crop since 1957/58, US heatwave, smaller Canadian plantings"
+2026-07-05T19:11Z,corn,1,Leaning bullish,,"USDA tighter stocks + heat dome risk, one-month price high"
+2026-07-05T19:11Z,soybeans,-1,Leaning bearish,,USDA sees larger stockpiles and record plantings; export sales at marketing-year low
+2026-07-06T22:00Z,crude-oil,-1,Leaning bearish,,Recovered from 4.25-month low on short covering; supply glut intact but priced
+2026-07-06T22:00Z,natural-gas,-1,Leaning bearish,,Two-week low on above-average storage and cooler forecasts
+2026-07-06T22:00Z,gold,1,Leaning bullish,,"Monday dip on firmer dollar, but soft labor market keeps rate-hike odds pinned"
+2026-07-06T22:00Z,silver,2,Bullish,,Second straight ~3% jump; safe-haven bid plus Fed repricing momentum
+2026-07-06T22:00Z,copper,1,Leaning bullish,,Fed repricing tailwind plus falling concentrate output in South America
+2026-07-06T22:00Z,wheat,2,Bullish,,Stocks and acreage both missed estimates; Black Sea supply caps the upside
+2026-07-06T22:00Z,corn,2,Bullish,,France heat damaged ~1/3 of its crop; China to cut tariffs on US grains
+2026-07-06T22:00Z,soybeans,0,Neutral / mixed,,"China tariff-cut plan offsets big-stocks, weak-export backdrop"
+2026-07-06T22:15Z,crude-oil,-1,Leaning bearish,,"Range-bound after 4.25-month low; social crowd bearish, watching $68-70 support"
+2026-07-06T22:15Z,natural-gas,-1,Leaning bearish,,Storage surplus rules the news; trader chatter says bad news is priced in
+2026-07-06T22:15Z,gold,1,Leaning bullish,,Soft labor market pins rate-hike odds; retail extremely bullish on miners
+2026-07-06T22:15Z,silver,2,Bullish,,Momentum leader; social crowd bullish and buying dips (contrarian flag)
+2026-07-06T22:15Z,copper,1,Leaning bullish,,Fed repricing + supply dents; bank forecasts circulating bullishly on social
+2026-07-06T22:15Z,wheat,2,Bullish,,Stocks/acreage misses; large traders still net short = short-covering fuel
+2026-07-06T22:15Z,corn,2,Bullish,,France crop damage + China tariff cuts; social chatter lags the news
+2026-07-06T22:15Z,soybeans,0,Neutral / mixed,,China tariff plan vs big stocks; no fresh social signal
+2026-07-06T23:00Z,crude-oil,-1,Leaning bearish,,"Tight range; Qatar reports US-Iran progress, supply fully recovering"
+2026-07-06T23:00Z,natural-gas,-2,Bearish,,"Forecasts shifted cooler for July 7-16, removing the heat-demand prop"
+2026-07-06T23:00Z,gold,1,Leaning bullish,,"Dollar-driven dip, but soft labor market keeps rate-hike odds pinned at ~50%"
+2026-07-06T23:00Z,silver,2,Bullish,,Consolidating (~$62) after a 6% two-session run; bullish drivers intact
+2026-07-06T23:00Z,copper,1,Leaning bullish,,Chinese funds rotating into metals ahead of solid H1 producer earnings
+2026-07-06T23:00Z,wheat,2,Bullish,,Plantings lowest in USDA records back to 1919; supply contraction ahead
+2026-07-06T23:00Z,corn,2,Bullish,,US-China agree to include ag in tariff-reduction framework; France damage
+2026-07-06T23:00Z,soybeans,0,Neutral / mixed,,Tariff framework hope vs big stocks and marketing-year-low export sales
+2026-07-07T11:10Z,crude-oil,-1,Leaning bearish,0,"OPEC+ quota hike + $11 Aramco OSP cut vs LNG carrier struck near Hormuz"
+2026-07-07T11:10Z,natural-gas,-2,Bearish,0,"Storage surplus + cool forecasts; crowd still leans bullish against the news"
+2026-07-07T11:10Z,gold,1,Leaning bullish,1,"Holding pattern into Wednesday's Fed minutes; labor-market tailwind intact"
+2026-07-07T11:10Z,silver,2,Bullish,3,"Holding the rebound (~$62.75); most crowded bullish view on the board"
+2026-07-07T11:10Z,copper,1,Leaning bullish,1,"Narrow range; Fed repricing + China fund rotation, awaiting hard demand data"
+2026-07-07T11:10Z,wheat,2,Bullish,1,"Structural supply story vs managed money extremely short and Sell technicals"
+2026-07-07T11:10Z,corn,2,Bullish,1,"Holding one-month high on France damage + China framework"
+2026-07-07T11:10Z,soybeans,1,Leaning bullish,0,"Cofco booked 6+ US cargoes; five-week high $11.80 — the China tell triggered"

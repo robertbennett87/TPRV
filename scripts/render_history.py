@@ -80,6 +80,38 @@ def main() -> None:
     for ts in reversed(timestamps[-MAX_TABLE_RUNS:]):
         lines.append(f"| {ts} | " + " | ".join(fmt(ts, cid) for cid in ids) + " |")
 
+    pairs_csv = ROOT / "history" / "pairs.csv"
+    if pairs_csv.exists():
+        prows = list(csv.DictReader(pairs_csv.open()))
+        pids: "OrderedDict[str, None]" = OrderedDict()
+        pruns: "OrderedDict[str, dict]" = OrderedDict()
+        for r in prows:
+            pids.setdefault(r["pair"], None)
+            pruns.setdefault(r["timestamp_utc"], {})[r["pair"]] = int(r["diff"])
+
+        def pfmt(ts: str, pid: str) -> str:
+            d = pruns[ts].get(pid)
+            if d is None:
+                return "·"
+            return f"+{d}" if d > 0 else str(d)
+
+        pts = sorted(pruns)
+        lines += [
+            "",
+            "## RV pair sentiment differentials (leg1 − leg2, "
+            f"last {MAX_TABLE_RUNS} runs, newest first)",
+            "",
+            "Positive = news flow favors leg1 outperformance. Pairs defined "
+            "in `config/commodities.yaml`; raw data in "
+            "[`history/pairs.csv`](history/pairs.csv).",
+            "",
+            "| Run (UTC) | " + " | ".join(pids) + " |",
+            "|---" * (len(pids) + 1) + "|",
+        ]
+        for ts in reversed(pts[-MAX_TABLE_RUNS:]):
+            lines.append(f"| {ts} | " +
+                         " | ".join(pfmt(ts, p) for p in pids) + " |")
+
     lines.append("")
     OUT_PATH.write_text("\n".join(lines))
     print(f"Wrote {OUT_PATH} ({len(timestamps)} runs, {len(ids)} commodities)")
