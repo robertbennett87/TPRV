@@ -24,3 +24,8 @@ timestamp_utc,pair,leg1,leg2,diff
 2026-07-07T11:10Z,corn-wheat,corn,wheat,0
 2026-07-07T11:10Z,crude-natgas,crude-oil,natural-gas,1
 2026-07-07T11:10Z,gold-copper,gold,copper,0
+2026-07-07T12:26Z,gold-silver,gold,silver,-1
+2026-07-07T12:26Z,corn-soybeans,corn,soybeans,1
+2026-07-07T12:26Z,corn-wheat,corn,wheat,0
+2026-07-07T12:26Z,crude-natgas,crude-oil,natural-gas,1
+2026-07-07T12:26Z,gold-copper,gold,copper,-1

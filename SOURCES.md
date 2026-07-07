@@ -28,6 +28,11 @@ watch whether it keeps earning its place.
 | Investing.com | investing.com/commodities/* | Futures quotes + short driver notes | 2026-07-05 | keep |
 | Mitrade / FXStreet feed | mitrade.com | Intraday precious-metals moves with timestamps | 2026-07-06 | probation |
 | Fortune commodities | fortune.com | Daily oil price recaps | 2026-07-07 | probation |
+| SMM (Shanghai Metals Market) | metal.com / price.metal.com | China physical copper: Yangshan premium pages, TC/RC, port inventories — moved the copper score 2026-07-07 | 2026-07-07 | probation |
+| Mysteel English | mysteel.net | China copper/steel market color | 2026-07-07 | probation |
+| IEA commentaries | iea.org/commentaries | Structural energy/metals analysis (copper smelter squeeze) | 2026-07-07 | probation |
+| US Drought Monitor + USDA weekly weather bulletin | droughtmonitor.unl.edu, usda.gov | Quantified drought footprint (63% of winter wheat area) — hardened the wheat read 2026-07-07 | 2026-07-07 | probation |
+| FXStreet commodities | fxstreet.com | Intraday session color (Asian-hours crude) | 2026-07-07 | probation |
 
 ## Social accounts & feeds
 
@@ -42,6 +47,16 @@ watch whether it keeps earning its place.
 | @sentimentrader | X (x.com/sentimentrader) | Cross-asset sentiment extremes; surfaced twice in metals sweeps — not yet directly quoted | 2026-07-06 | probation |
 | Gary Wagner (@GoldForecast) | StockTwits | Gold technical commentary | 2026-07-07 | probation |
 | StockTwits COPX/CPER symbols | stocktwits.com/symbol/COPX, /CPER | Copper retail sentiment proxies (miners ETF chatter) | 2026-07-07 | probation |
+| Kitco Weekly Gold Survey | kitco.com, Fridays | Quantified Wall St vs Main St bullish % — direct gold crowd input; delivered 69%/54% split 2026-07-07 | 2026-07-07 | probation |
+| Saxo weekly COT note (Ole Hansen) | home.saxo + @Ole_S_Hansen on X | Verified active; weekly managed-money positioning across all legs, Fridays | 2026-07-07 | probation |
+| ApeWisdom GDX page | apewisdom.io/stocks/GDX | Works like SLV/GLD (3 mentions, 67% positive this run) | 2026-07-07 | probation |
+
+**Verification notes (2026-07-07 run):** Karen Braun is now at **Zaner Ag
+Hedge** (columns via American Ag Network; Iowa PBS market segments). The query
+"John Kemp oil funds positioning" returned nothing — retry via jkempenergy.com
+or @JKempEnergy before judging it dead. CPER/USO/CORN/WEAT/SOYB show ~zero
+Reddit mentions: ag/energy Reddit gauges are usually a null signal, which is
+itself the reading (no retail crowd in those legs).
 
 ## Named analysts worth flagging when they appear
 
