@@ -8,19 +8,20 @@ Source of truth: [`history/scores.csv`](history/scores.csv). Regenerate this fil
 
 | Commodity | Score | Label | Trend (oldest → newest, last 12 runs) |
 |---|---|---|---|
-| crude-oil | -1 | Leaning bearish | -2 → -1 → -1 → -1 → -1 → -1 |
-| natural-gas | -2 | Bearish | -1 → -1 → -1 → -2 → -2 → -2 |
-| gold | +1 | Leaning bullish | +1 → +1 → +1 → +1 → +1 → +1 |
-| silver | +2 | Bullish | +1 → +2 → +2 → +2 → +2 → +2 |
-| copper | +2 | Bullish | 0 → +1 → +1 → +1 → +1 → +2 |
-| wheat | +2 | Bullish | +2 → +2 → +2 → +2 → +2 → +2 |
-| corn | +2 | Bullish | +1 → +2 → +2 → +2 → +2 → +2 |
-| soybeans | +1 | Leaning bullish | -1 → 0 → 0 → 0 → +1 → +1 |
+| crude-oil | -1 | Leaning bearish | -2 → -1 → -1 → -1 → -1 → -1 → -1 |
+| natural-gas | -2 | Bearish | -1 → -1 → -1 → -2 → -2 → -2 → -2 |
+| gold | +1 | Leaning bullish | +1 → +1 → +1 → +1 → +1 → +1 → +1 |
+| silver | +1 | Leaning bullish | +1 → +2 → +2 → +2 → +2 → +2 → +1 |
+| copper | +2 | Bullish | 0 → +1 → +1 → +1 → +1 → +2 → +2 |
+| wheat | +2 | Bullish | +2 → +2 → +2 → +2 → +2 → +2 → +2 |
+| corn | +2 | Bullish | +1 → +2 → +2 → +2 → +2 → +2 → +2 |
+| soybeans | +1 | Leaning bullish | -1 → 0 → 0 → 0 → +1 → +1 → +1 |
 
 ## Run-by-run scores (last 42 runs, newest first)
 
 | Run (UTC) | crude-oil | natural-gas | gold | silver | copper | wheat | corn | soybeans |
 |---|---|---|---|---|---|---|---|---|
+| 2026-07-07T16:30Z | -1 | -2 | +1 | +1 | +2 | +2 | +2 | +1 |
 | 2026-07-07T12:26Z | -1 | -2 | +1 | +2 | +2 | +2 | +2 | +1 |
 | 2026-07-07T11:10Z | -1 | -2 | +1 | +2 | +1 | +2 | +2 | +1 |
 | 2026-07-06T23:00Z | -1 | -2 | +1 | +2 | +1 | +2 | +2 | 0 |
@@ -34,6 +35,7 @@ Positive = news flow favors leg1 outperformance. Pairs defined in `config/commod
 
 | Run (UTC) | gold-silver | corn-soybeans | corn-wheat | crude-natgas | gold-copper |
 |---|---|---|---|---|---|
+| 2026-07-07T16:30Z | 0 | +1 | 0 | +1 | -1 |
 | 2026-07-07T12:26Z | -1 | +1 | 0 | +1 | -1 |
 | 2026-07-07T11:10Z | -1 | +1 | 0 | +1 | 0 |
 | 2026-07-06T23:00Z | -1 | +2 | 0 | +1 | 0 |
