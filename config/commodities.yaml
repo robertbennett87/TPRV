@@ -22,6 +22,7 @@ social:
     gold: [GLD, GDX]
     silver: [SLV]
     copper: [CPER, COPX]
+    aluminum: [AA]  # no liquid aluminum ETF; Alcoa equity is the retail proxy
     wheat: [WEAT]
     corn: [CORN]
     soybeans: [SOYB]
@@ -47,6 +48,9 @@ pairs:
   - id: gold-copper
     legs: [gold, copper]
     note: macro risk-on/off proxy (rate expectations vs growth)
+  - id: copper-aluminum
+    legs: [copper, aluminum]
+    note: intra-base-metals RV; electrification premium vs energy-cost/smelter economics
 
 # Standing weekly/monthly catalyst schedule. Each run builds a dated
 # "next 7 days" calendar from this plus any dated events found in coverage
@@ -107,6 +111,13 @@ commodities:
     search_terms:
       - "copper price news today"
     drivers: [China demand, grid & EV buildout, mine supply disruptions, LME/COMEX inventories, tariffs]
+
+  - id: aluminum
+    name: Aluminum
+    search_terms:
+      - "aluminum price news today LME"
+      - "aluminium China smelters premium news"
+    drivers: [LME/SHFE inventories, China smelter output & power costs, alumina/bauxite supply (Guinea), Russian-metal sanctions & tariffs, energy prices, auto & construction demand]
 
   - id: wheat
     name: Wheat
